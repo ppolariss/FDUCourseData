@@ -53,6 +53,10 @@ const RAW_PATH = join(SEMESTER_PATH, 'raw')
 mkdirSync(RAW_PATH, { recursive: true })
 const XK_PATH = join(SEMESTER_PATH, `xk.json`)
 
+import https from 'https';
+const agent = new https.Agent({
+  secureOptions: require('constants').SSL_OP_LEGACY_SERVER_CONNECT
+});
 /** 爬取某一个代码前缀的所有课程信息 */
 async function getDataByCode(prefix: string): Promise<boolean> {
   const OUTPUT_PATH = join(RAW_PATH, `${prefix}`)
@@ -73,6 +77,7 @@ async function getDataByCode(prefix: string): Promise<boolean> {
     {
       headers: HEADERS,
       responseType: 'stream',
+      httpsAgent: agent,
     },
   )
 

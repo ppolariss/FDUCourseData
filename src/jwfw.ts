@@ -45,6 +45,10 @@ mkdirSync(SEMESTER_PATH, { recursive: true })
 const HTML_PATH = join(SEMESTER_PATH, 'jwfw.html')
 const JSON_PATH = join(SEMESTER_PATH, `jwfw.json`)
 
+import https from 'https';
+const agent = new https.Agent({
+  secureOptions: require('constants').SSL_OP_LEGACY_SERVER_CONNECT
+});
 /** 获取 jwfw 中开课大纲数据并解析存储 */
 async function getJwfw() {
   // 爬取课程大纲页并写入 jwfw.html
@@ -62,6 +66,7 @@ async function getJwfw() {
     {
       headers: HEADERS,
       responseType: 'stream',
+      httpsAgent: agent,
     },
   )
 
