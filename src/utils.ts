@@ -86,6 +86,23 @@ export const sleep = async (ms = 1000) =>
 
 /** 课程代码前缀集合 */
 export const CODE_PREFIXES = [
+  'AIB11',
+  'AIB21',
+  'AIB31',
+  'AIE21',
+  'AIE31',
+  'AIE41',
+  'AIE53',
+  'AIE83',
+  'AIS21',
+  'AIS31',
+  'AIS41',
+  'AIS53',
+  'AIS63',
+  'AIS73',
+  'AIT31',
+  'AIT41',
+  'AIT53',
   'ATMO11',
   'ATMO13',
   'BIOL11',
@@ -215,6 +232,7 @@ export const CODE_PREFIXES = [
   'TOUR11',
   'TOUR13',
   'XDSY11',
+  'XHXT12',
   'ZDSY11',
 ]
 
